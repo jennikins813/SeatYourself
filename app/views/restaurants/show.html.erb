@@ -26,7 +26,7 @@
 			<%= reservation.party_size %>
 			<br>
 			<% if reservation.user != nil %>
-				<em> by <%= reservation.user.email %></em>
+				<em> by <%= reservation.user.name %></em>
 				Added on: <%= reservation.created_at %>
 			<% end %>	
 		</p>

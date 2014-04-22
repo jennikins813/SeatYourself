@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+	before_filter :ensure_logged_in, :only => [:edit, :create, :show, :update, :destroy]
 	before_filter :load_restaurant
 
 	def index
@@ -10,7 +11,7 @@ class ReservationsController < ApplicationController
 	end
 
 	def create
-		@reservation = @restaurant.reservation.build(reservation_params)
+		@reservation = @restaurant.reservations.build(reservation_params)
 		@reservation.user_id = current_user.id
 
 		if @reservation.save
